@@ -21,4 +21,9 @@ public interface ReviewMapper {
 			@Param("userName") String userName11, 
 			@Param("point") Double point111, 
 			@Param("review") String review11);
+	
+	
+	// return 타입은 void여도 되고, int도 가능하다.
+	// mapper마음이다.
+	public int deleteReviewById(int id);
 }

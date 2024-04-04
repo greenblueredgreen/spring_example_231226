@@ -29,4 +29,10 @@ public class ReviewBO {
 		
 		return reviewMapper.insertReviewAsField(stordId, menu, userName, point, review);
 	}
+	
+	//input : int id
+	// output : X (return 안할수도 있다. bo의 마음이다.)
+	public void deleteReviewById(int id) {
+		reviewMapper.deleteReviewById(id);
+	}
 }
