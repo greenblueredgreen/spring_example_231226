@@ -25,5 +25,6 @@ public interface ReviewMapper {
 	
 	// return 타입은 void여도 되고, int도 가능하다.
 	// mapper마음이다.
+	// return은 BO 로 보내는 것이다.
 	public int deleteReviewById(int id);
 }

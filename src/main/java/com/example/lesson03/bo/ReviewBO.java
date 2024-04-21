@@ -30,8 +30,10 @@ public class ReviewBO {
 		return reviewMapper.insertReviewAsField(stordId, menu, userName, point, review);
 	}
 	
-	//input : int id
+	//input : int id  (삭제할 id 를 받아온다)
 	// output : X (return 안할수도 있다. bo의 마음이다.)
+	// output : 꼭 줘야하는 것은 아니다. 요리사, 셰프 마음이다. 
+	// 안줄수도 있다.
 	public void deleteReviewById(int id) {
 		reviewMapper.deleteReviewById(id);
 	}

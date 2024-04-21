@@ -10,7 +10,6 @@ import com.example.lesson03.bo.ReviewBO;
 @RestController
 public class Lesson03Ex04RestController {
 	
-	
 	@Autowired //BO
 	private ReviewBO reviewBO;
 	
@@ -20,6 +19,6 @@ public class Lesson03Ex04RestController {
 			@RequestParam("id") int id) {
 		
 		reviewBO.deleteReviewById(id);
-		return "삭제 성공";
+		return "삭제 성공"; // BO에서 void로 들어와서 
 	}
 }
