@@ -1,14 +1,21 @@
 package com.example.lesson04;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.lesson04.bo.UserBO;
+
 @RequestMapping("/lesson04/ex01")
 @Controller   //jsp 화면의 경우 @ResponseBody 사용 안함
 public class Lesson04Ex01Controller {
+	
+	@Autowired
+	private UserBO userBO;  //private는 관례적으로 붙인다. 
+	
 
 	//회원가입 화면
 	//http://localhost/lesson04/ex01/add-user-view  (jsp로 보내는 것/그냥 서버 주소이다.)
@@ -26,6 +33,8 @@ public class Lesson04Ex01Controller {
 			@RequestParam(value="introduce", required=false) String introduce){
 		
 		//DB Insert
+		userBO.addUser(name, yyyymmdd, email, introduce);
+		
 		return "lesson04/afterAddUser";
 	}
 }
