@@ -13,11 +13,12 @@ import com.example.lesson02.domain.UsedGoods;
 public class Lesson02Ex01RestController {
 
 	@Autowired
-	private UsedGoodsBO usedGoodsBO;
+	private UsedGoodsBO usedGoodsBO;  //DI
 	
 	//http://localhost/lesson02/ex01
 	@RequestMapping("/lesson02/ex01")
 	public List<UsedGoods> ex01(){
 		return usedGoodsBO.getUsedGoodsList();  //response => JSON
+		// bo한테 받아온 데이터를 리턴한다.
 	}
 }

@@ -5,6 +5,7 @@
  
  <mapper namespace="com.example.lesson02.mapper.UsedGoodsMapper">
  	<select id="selectUsedGoodsList" resultType="com.example.lesson02.domain.UsedGoods">
+ 		<!-- id로 연결된다. -->
  		SELECT
  			*
  		FROM

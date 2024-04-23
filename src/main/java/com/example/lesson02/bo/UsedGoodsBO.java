@@ -18,6 +18,6 @@ public class UsedGoodsBO {
 	// input: (컨트롤러부터 받아온다. 그러나 아무것도 안받아옴, input 없음)
 	// output: (컨트롤러에게 준다.)  List<UsedGoods>
 	public List<UsedGoods> getUsedGoodsList(){
-		return usedGoodsMapper.selectUsedGoodsList();
+		return usedGoodsMapper.selectUsedGoodsList(); //데이터를 반환해준다.
 	}
 }

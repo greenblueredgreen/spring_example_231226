@@ -24,4 +24,19 @@
 			, NOW()
 		)
 	</insert>
+	
+	<select id="selectStudentById" parameterType="int">
+		SELECT
+			`id`
+			,`name`
+			,`phoneNumber`
+			,`email`
+			,`dreamJob`
+			,`createdAt`
+			,`updatedAt`
+		FROM 
+			`new_student`
+		WHERE
+			id = #{id}
+	</select>
 </mapper>

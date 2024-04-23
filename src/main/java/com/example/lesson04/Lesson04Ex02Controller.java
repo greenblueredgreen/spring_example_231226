@@ -39,10 +39,10 @@ public class Lesson04Ex02Controller {
 		
 		//DB SELECT => 방금 가입된 학생
 		int id = student.getId();
-		Student newStudent = studentBO.
+		Student newStudent = studentBO.getStudentById(id);
 		
 		//MODEL 에 담는다.  (최근 학생을 담는다.)
-		model.add
+		model.addAttribute("student", newStudent);
 		
 		//화면 이동 
 		return "lesson04/afterAddStudent";
