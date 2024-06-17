@@ -9,16 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.lesson02.bo.UsedGoodsBO;
 import com.example.lesson02.domain.UsedGoods;
 
-@RestController
+@RestController  //@Controller + @ResponseBody (JSON)
 public class Lesson02Ex01RestController {
 
+	//요리=DTO
+	
+	//DI해준다.
 	@Autowired
-	private UsedGoodsBO usedGoodsBO;  //DI
+	private UsedGoodsBO usedGoodsBO; 
 	
 	//http://localhost/lesson02/ex01
 	@RequestMapping("/lesson02/ex01")
 	public List<UsedGoods> ex01(){
-		return usedGoodsBO.getUsedGoodsList();  //response => JSON
+		
+		// 리스트에 담아서 리턴
+		// List<UsedGoods> usedGoodsList = usedGoodsBO.getUsedGoodsList();
+		// return usedGoodsList;
+		return usedGoodsBO.getUsedGoodsList();  
+		//response => List => Response JSON(String)
 		// bo한테 받아온 데이터를 리턴한다.
 	}
 }

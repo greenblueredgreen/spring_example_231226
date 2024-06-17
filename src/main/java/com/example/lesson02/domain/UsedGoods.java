@@ -1,8 +1,11 @@
 package com.example.lesson02.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-//일반 자바 bean
+
+// 데이터를 담는 공간
+// 일반 자바 bean
 // domain, DTO, Entity
 public class UsedGoods {
 	private int id;
@@ -11,8 +14,10 @@ public class UsedGoods {
 	private String description;
 	private int price;
 	private String picture;
-	private Date createdAt;
-	private Date updatedAt;
+	
+	//date 말고 localdatetime 사용
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 	
 	public int getId() {
 		return id;
@@ -50,17 +55,21 @@ public class UsedGoods {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public Date getCreatedAt() {
+	
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Date getUpdatedAt() {
+	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
+
 	
 }

@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
- 
+
+<!--  mapper과는 mybatis가 연결해준다.  -->
+ <!-- MAPPER와 연결되기 위해 MAPPER주소를 써준다. + .interface 명 넣기-->
  <mapper namespace="com.example.lesson02.mapper.UsedGoodsMapper">
+ 
+ 	<!-- mapper 안의 함수 이름 넣기 --> <!-- domain 위치 넣기 + domain class이름 -->
  	<select id="selectUsedGoodsList" resultType="com.example.lesson02.domain.UsedGoods">
  		<!-- id로 연결된다. -->
  		SELECT
