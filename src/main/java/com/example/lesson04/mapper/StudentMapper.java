@@ -7,7 +7,7 @@ import com.example.lesson04.domain.Student;
 @Mapper
 public interface StudentMapper {
 	
-	public void insertStudent(Student student);
+	public int insertStudent(Student student);
 	
 	public Student selectStudentById(int id);
 }
