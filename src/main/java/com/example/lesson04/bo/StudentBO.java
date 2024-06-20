@@ -20,6 +20,8 @@ public class StudentBO {
 		//리턴 안한다. 
 	}
 	
+	//input : id
+	//output : Student
 	public Student getStudentById(int id) {
 		return studentMapper.selectStudentById(id);
 	}

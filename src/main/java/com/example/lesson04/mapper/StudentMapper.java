@@ -9,5 +9,6 @@ public interface StudentMapper {
 	
 	public int insertStudent(Student student);
 	
-	public Student selectStudentById(int id);
+	public Student selectStudentById(int id);  //파라미터 개수 한개라 map: x
+	
 }

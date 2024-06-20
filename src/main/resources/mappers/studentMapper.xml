@@ -4,7 +4,8 @@
  
 <mapper namespace="com.example.lesson04.mapper.StudentMapper">
 	<insert id="insertStudent" parameterType="com.example.lesson04.domain.Student"
-	useGeneratedKeys="true" keyProperty="id">
+	useGeneratedKeys="true" keyProperty="id">    
+	<!-- 각자 session 별로 독립적으로 진행될 수 있게 해준다. -->
 		INSERT INTO `new_student`
 		(
 			`name`
@@ -25,7 +26,8 @@
 		)
 	</insert>
 	
-	<select id="selectStudentById" parameterType="int">
+	<!--  public Student selectStudentById(int id); (mapper) -->
+	<select id="selectStudentById" parameterType="int" resultType="com.example.lesson04.domain.Student">
 		SELECT
 			`id`
 			,`name`

@@ -29,7 +29,7 @@ public class Lesson04Ex02Controller {
 	// DB INSERT => 방금 가입된 학생 select => 화면으로 이동
 	//http://localhost/lesson04/ex02/add-student
 	//post형태
-	@PostMapping("/add-student")
+	@PostMapping("/add-student")  //foam에서 넘어오는 데이터
 	public String addStudent(
 			//@Requestparam 이 계속 반복되서 다른 방법을 써본다. 
 			//Student 객체로 한번에 바로 받는 방식이다.(@ModelAttribute)
@@ -43,12 +43,14 @@ public class Lesson04Ex02Controller {
 		studentBO.addStudent(student);
 		
 		//DB SELECT => 방금 가입된 학생
-		int id = student.getId();
-		Student newStudent = studentBO.getStudentById(id);
-		
+		int id = student.getId();   //getId() - getter(domain영역)
+		Student latestStudent = studentBO.getStudentById(id);  //id에 해당하는 학생의 정보를 담는다.
+
 		//MODEL에 데이터를 담는다.  (최근 학생을 담는다.)
-		model.addAttribute("student", newStudent); 
+		model.addAttribute("student", latestStudent);  //그 정보를 다시 model에 담는다.
 		//newStudent를 "student"에 담는다.
+		//model은 데이터를 담아서 view로 전달할 때 사용한다. 
+		
 		
 		//화면 이동 
 		//방금 가입된 학생을 뿌리는 화면
