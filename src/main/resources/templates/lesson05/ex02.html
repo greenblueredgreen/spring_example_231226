@@ -51,7 +51,16 @@
 				<th>취미</th>
 			</tr>
 		</thead>
-		<tbody></tbody>
+		<tbody>
+			<!-- 이름 주의 -->
+			<tr th:each="user, status : ${users}">
+				<td th:text="${status.count}">번호</td>
+				<!-- key이름으로 한번 더 접근해줘야한다. -->
+				<td th:text= "${user.name}">이름</td>
+				<td th:text="${user.age}">나이</td>
+				<td th:text="${user.hobby}">취미</td>
+			</tr>
+		</tbody>
 	</table>
 </body>
 </html>
