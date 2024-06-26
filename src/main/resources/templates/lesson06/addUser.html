@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입1</h1>
+        <form action="/lesson06/ex01/add-user" method="post">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" class="form-control col-4">
+            </div>
+            <div class="form-group">
+                <label for="yyyymmdd">생년월일</label>
+                <input type="text" id="yyyymmdd" name="yyyymmdd" class="form-control col-4" placeholder="예) 19991201">
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="text" id="email" name="email" class="form-control col-4">
+            </div>
+            <div class="form-group">
+                <label for="introduce">자기소개</label>
+                <textarea id="introduce" name="introduce" class="form-control"></textarea>
+            </div>
+            
+            <!-- button으로 하면 form태그가 동작하지 않는다. -->
+            <input type="button" id ="joinBtn" value="회원가입" class="btn btn-success">
+        </form>
+    </div>
+    
+    <script>
+    	$(document).ready(function(){
+    		// 1.)jquery를 통한 form submit
+    		
+    		/*
+    		// event객체 e
+    		$("form").on('submit', function(e){
+    			// e.preventDefault()
+    			// 서브밋 기능 중단(화면 이동 x)
+    			// 화면 그대로 있다. 
+    			
+    			// validation
+    			// val() : 값 가져오기
+    			let name = $("input[name=name]").val().trim();
+    			if(name.length < 1){
+    				alert("이름을 입력하세요 : ");
+    				return false;
+    				// form 태그 submit이벤트는 
+    				// return만으로 안되고 return false;만 먹힌다.
+    			}
+    			
+    			let yyyymmdd = $("#yyyymmdd").val().trim();
+    			if(yyyymmdd == ""){
+    				alert("생년월일 입력");
+    				return false;
+    			}
+    			
+    			let email = $("#email").val().trim();
+    			if(!email){
+    				alert("email 주소를 입력");
+    				return false;
+    			}
+    			
+    			let introduce = $("#introduce").val.trim();
+    			
+    			
+    			alert("submit 서브밋");
+    		}); 
+    	*/
+    		
+    		// 2) jquery의 AJAX 통신 이용
+    		$("#joinBtn").on('click', function(){
+    			//alert("클릭");
+    			
+    			let name = $("input[name=name]").val().trim();
+    			if(name.length < 1){
+    				alert("이름을 입력하세요 : ");
+    				return;
+    				// form 태그가 아니기 때문에 return만 해도된다.
+    			}
+    			
+    			let yyyymmdd = $("#yyyymmdd").val().trim();
+    			if(yyyymmdd == ""){
+    				alert("생년월일 입력");
+    				return;
+    			}
+    			
+    			let email = $("#email").val().trim();
+    			if(!email){
+    				alert("email 주소를 입력");
+    				return;
+    			}
+    			
+    			let introduce = $("#introduce").val(); //자기소개라 공백 제거 안함
+    			
+    			console.log(name);
+    			console.log(yyyymmdd);
+    			console.log(email);
+    			console.log(introduce);
+    			
+    			// AJAX 통신 => 서버에 요청
+    			$.ajax({
+    				// request
+    				type : "POST"
+    				, url:"/lesson06/ex01/add-user"
+    				//requestparam은 키, value값으로 
+    				, data: {"name" : name, "yyyymmdd" : yyyymmdd, "email" : email, "introduce" : introduce}
+    				
+    				// response
+    				// callback 함수
+    				, success : function(data){ //data 파라미터 : 응답값(String) 
+    										   //위의 data랑 관련 없다.
+    										   //ajax의 응답값은 String이다. 
+    					//alert(data);
+    					if(data=="성공"){
+    						location.href = "/lesson06/ex01/after-add-user-view"
+    					}
+    				}
+    				, error:function(xhr, status, error){
+    					alert(xhr);
+    					alert(status);
+    					alert(error);
+    				}	
+    			});   
+    				//ajax함수 - 파라미터로 dic 들어간다.
+    				//ajax는 함수에서 시작해서 다시 돌아온다.
+    				//시작과 끝은 다 ajax
+ 				
+    			
+    		});
+    	});
+    </script>
+</body>
+</html>
