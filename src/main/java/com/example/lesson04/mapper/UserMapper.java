@@ -18,4 +18,8 @@ public interface UserMapper {
 			@Param("introduce") String introduce);
 	
 	public User selectLatestUser(); // input없고 리턴타임 User
+	
+	// 0이 아닌 수 전부 참이므로 true
+	// 0이면 false
+	public boolean isDuplicationByName(String name);
 }
