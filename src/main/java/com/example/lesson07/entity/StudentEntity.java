@@ -21,7 +21,8 @@ import lombok.ToString;
 @ToString  //내용물이 보인다. 객체 출력시 필드 값들이 보인다.
 @AllArgsConstructor //모든 파라미터 있는 생성자
 @NoArgsConstructor //파라미터가 없는 생성자
-@Builder //setter대신 builder 사용하는 추세, setter대신 내용을 담는다.
+@Builder(toBuilder = true) //setter대신 builder 사용하는 추세, setter대신 내용을 담는다.
+//(toBuilder = true) true로 셋팅하면 필드 수정을 허용하겠다라는 뜻이다.
 @Getter
 @Table(name="new_student") //자카르타 선택
 @Entity // 이 객체는 entity다. 라고 알려준다. BO - JPA - DB 
