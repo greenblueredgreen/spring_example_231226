@@ -37,7 +37,13 @@ public class Lesson07Ex01RestController {
 		return studentBO.updateStudentDreamJobById(7, "기획자");
 	}
 	
-	
-	
-	
+	//http://localhost/lesson07/ex01/delete
+	//D : Delete
+	@GetMapping("/delete")
+	public String delete() {
+		// id가 8번인 데이터 삭제
+		studentBO.deleteStudentById(8);
+		
+		return "삭제 성공";
+	}
 }
